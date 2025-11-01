@@ -1,0 +1,114 @@
+@font-face {
+    font-family: 'Lato';
+    src: url("./fonts/Lato-Regular.ttf") format('truetype');
+}
+
+.title {
+    padding-top: 2%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.font {
+    font-family: 'Lato', sans-serif;
+}
+
+.icon {
+    background: url("./icons/info.png");
+    height: 20px;
+    width: 20px;
+    display: block;
+}
+
+.upload-box {
+    display: block;
+    /* background-color: aquamarine; */
+    position: relative;
+}
+
+.input-file {
+    margin-top: 10px;
+    cursor: pointer;
+    display: inline-block;
+    /* background-color: lime; */
+}
+
+.upload-button {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    /* background-color: wheat; */
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    /* background-color: tomato; */
+}
+
+.info-button {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 36px;
+    color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.convert-box {
+    display: inline-block;
+    /* justify-content: center; */
+    /* background-color: yellow; */
+}
+
+.convert-button {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    /* background-color: lightsalmon; */
+    height: 30px;
+}
+
+.info-field {
+    /* background-color: lightgreen; */
+    display: flex;
+    /* justify-content: flex-end; */
+}
+
+.output-field {
+    margin-top: 1%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* background-color: lightcoral; */
+}
+
+.data-textarea {
+    resize: none;
+    width: 50vw;
+}
+
+.buttons-box {
+    margin-top: 3vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: lightpink; */
+}
+
+.responses {
+    margin-top: 3vh;
+}
+
+.output-text {
+    width: 50vw;
+}
