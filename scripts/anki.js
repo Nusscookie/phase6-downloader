@@ -37,7 +37,6 @@ async function createPackages() {
         ],
         req: [
             [0, "all", [0]],
-            // [1, "all", [1]]
         ],
         tmpls: [
             {
@@ -50,28 +49,32 @@ async function createPackages() {
 
     for (let name of unitNames) {
         let deckId = 1762166929594 + unitNames.indexOf(name);
-        let deck = new Deck(deckId, `Deck::${name}`);
+        let firstName = "";
+        let secondName = "";
+        let deckName = "";
+        let tag = name.replaceAll(' ', '_');;
+
+        if (name.includes('|')) {
+            firstName = name.split('|').shift().trim();
+            secondName = name.split('|').pop().trim();
+            deckName = `Deck::${firstName}::${secondName}`;
+        } else if (name.includes('-')) {
+            firstName = name.split('-').shift().trim();
+            secondName = name.split('-').pop().trim();
+            deckName = `Deck::${firstName}::${secondName}`;
+        } else {
+            deckName = `Deck::${name}`;
+        }
+
+        let deck = new Deck(deckId, deckName);
         let filteredCards = list.filter(card => card[2] === name.replaceAll(' ', '_'));
 
         for (let card of filteredCards) {
-            deck.addNote(standardModel.note([card[0], card[1]]));
+            deck.addNote(standardModel.note([card[0], card[1]], [tag]));
         }
 
         ankiPackage.addDeck(deck);
     }
 
     ankiPackage.writeToFile('phase6-vocab.apkg');
-
-    // let deck = new Deck(1762166929594, "Root::Test Deck")
-    // let deck2 = new Deck(1772169229595, "Root::Test Deck 2")
-
-    // deck.addNote(standardModel.note(['this is front', 'this is back']))
-    // deck2.addNote(standardModel.note(['front of deck 2', 'back of deck 2']))
-
-    // let ankiPackage = new Package()
-    // ankiPackage.setSqlJs(db)  // Pass the Database instance, not the SQL library
-    // ankiPackage.addDeck(deck)
-    // ankiPackage.addDeck(deck2)
-
-    // ankiPackage.writeToFile('output.apkg')
 }

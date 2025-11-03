@@ -21,5 +21,5 @@ This tool is legal because you are only capable of downloading vocabulary if you
 belonging the phase6.
 
 ## License
-GNU GPLv3<br>
+[GNU GPLv3](LICENSE)<br>
 Copyright (c) Nusscookie

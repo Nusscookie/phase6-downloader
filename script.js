@@ -1,4 +1,3 @@
-// import { createAnkiDeck, initDb } from "./scripts/anki.js";
 import { downloadAnki } from "./scripts/anki.js";
 import { downloadCSV } from "./scripts/csv.js";
 
@@ -33,9 +32,6 @@ function saveData() {
 }
 
 saveData();
-
-// initDb();
-// createAnkiDeck();
 
 function getInfo() {
 
