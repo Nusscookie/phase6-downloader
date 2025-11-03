@@ -1,0 +1,29 @@
+{
+  "name": "phase6-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nusscookie/phase6-downloader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nusscookie/phase6-downloader/issues"
+  },
+  "homepage": "https://github.com/Nusscookie/phase6-downloader#readme",
+  "devDependencies": {
+    "vite": "^7.1.12"
+  },
+  "dependencies": {
+    "genanki-js": "^2.0.0"
+  }
+}

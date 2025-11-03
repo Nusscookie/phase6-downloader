@@ -14,7 +14,7 @@
 }
 
 .icon {
-    background: url("./icons/info.png");
+    background: url("./icons/info.svg");
     height: 20px;
     width: 20px;
     display: block;
@@ -69,19 +69,13 @@
     /* background-color: yellow; */
 }
 
-.convert-button {
+.button {
     border: 2px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 5px 15px;
     cursor: pointer;
     /* background-color: lightsalmon; */
     height: 30px;
-}
-
-.info-field {
-    /* background-color: lightgreen; */
-    display: flex;
-    /* justify-content: flex-end; */
 }
 
 .output-field {
@@ -94,7 +88,7 @@
 
 .data-textarea {
     resize: none;
-    width: 50vw;
+    width: 75vw;
 }
 
 .buttons-box {
@@ -110,5 +104,13 @@
 }
 
 .output-text {
-    width: 50vw;
+    width: 75vw;
+}
+
+.apkg-button {
+    margin-left: 1vw;
+}
+
+.download-box {
+    display: inline-flex;
 }

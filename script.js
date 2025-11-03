@@ -1,9 +1,17 @@
-const outputField = document.getElementById('output-field');
-const cardListData = document.getElementById('cardListData');
-const unitsListData = document.getElementById('unitsListData');
+// import { createAnkiDeck, initDb } from "./scripts/anki.js";
+import { downloadAnki } from "./scripts/anki.js";
+import { downloadCSV } from "./scripts/csv.js";
 
-let cardsObject = {};
+const convertButton = document.getElementById('csvButton');
+const infoButton = document.getElementById('infoButton');
+const apkgButton = document.getElementById('apkgButton');
+const outputField = document.getElementById('output-field');
+
 let expanseField = true;
+
+convertButton.addEventListener('click', downloadCSV);
+infoButton.addEventListener('click', getInfo);
+apkgButton.addEventListener('click', downloadAnki);
 
 function saveData() {
 
@@ -26,42 +34,8 @@ function saveData() {
 
 saveData();
 
-function convertData() {
-    let cardListValue = cardListData.value;
-    let unitsListValue = unitsListData.value;
-
-    try {
-        cardsObject = JSON.parse(cardListValue).replyContent.cards;
-        unitsObject = JSON.parse(unitsListValue).replyContent.units;
-    } catch (error) {
-        outputField.textContent = "Invalid JSON data.";
-        return;
-    }
-
-    let cards = cardsObject.map(card => {
-        return [card.cardContent.question.split("[").shift(), card.cardContent.answer.split("[").shift(), card.unitIdToOwner.id];
-    });
-
-    let units = unitsObject.map(unit => {
-        return [unit.unitId.id, unit.unitContent.name];
-    });
-
-    let list = cards.map(card => {
-        let unitName = units.find(unit => unit[0] === card[2])[1];
-        return [card[0], card[1], unitName.replaceAll(' ', '_')];
-    });
-
-    let csvContent = list.map(listItem => {
-        return `${listItem[0]},${listItem[1]},${listItem[2]}\n`;
-    });
-
-    const blob = new Blob(csvContent, { type: 'text/csv' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'phase6-vocab.csv';
-    link.click();
-}
-
+// initDb();
+// createAnkiDeck();
 
 function getInfo() {
 
