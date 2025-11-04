@@ -7,7 +7,7 @@ let db = null;
 
 export async function downloadAnki() {
     await initDb();
-    await createPackages();
+    await createPackage();
 }
 
 async function initDb() {
@@ -17,7 +17,7 @@ async function initDb() {
     db = new SQL.Database();
 }
 
-async function createPackages() {
+async function createPackage() {
     // Ensure SQL is initialized
     if (!SQL) {
         await initDb();
@@ -67,7 +67,7 @@ async function createPackages() {
         }
 
         let deck = new Deck(deckId, deckName);
-        let filteredCards = list.filter(card => card[2] === name.replaceAll(' ', '_'));
+        let filteredCards = list.filter(card => card[2] === name);
 
         for (let card of filteredCards) {
             deck.addNote(standardModel.note([card[0], card[1]], [tag]));

@@ -32,17 +32,6 @@
     /* background-color: lime; */
 }
 
-.upload-button {
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 5px 15px;
-    cursor: pointer;
-    /* background-color: wheat; */
-    display: block;
-    position: absolute;
-    bottom: 0;
-}
-
 .box {
     display: flex;
     justify-content: center;
@@ -60,6 +49,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    touch-action: manipulation;
 }
 
 .convert-box {
@@ -75,6 +65,7 @@
     cursor: pointer;
     /* background-color: lightsalmon; */
     height: 30px;
+    touch-action: manipulation;
 }
 
 .output-field {
@@ -106,8 +97,8 @@
     width: 75vw;
 }
 
-.apkg-button {
-    margin-left: 1vw;
+.margin-button {
+    margin-left: 0.5vw;
 }
 
 .download-box {

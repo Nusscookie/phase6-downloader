@@ -1,16 +1,19 @@
 import { downloadAnki } from "./scripts/anki.js";
 import { downloadCSV } from "./scripts/csv.js";
+import { downloadPDF } from "./scripts/pdf.js";
 
 const convertButton = document.getElementById('csvButton');
 const infoButton = document.getElementById('infoButton');
 const apkgButton = document.getElementById('apkgButton');
 const outputField = document.getElementById('output-field');
+const pdfButton = document.getElementById('pdfButton');
 
 let expanseField = true;
 
 convertButton.addEventListener('click', downloadCSV);
 infoButton.addEventListener('click', getInfo);
 apkgButton.addEventListener('click', downloadAnki);
+pdfButton.addEventListener('click', downloadPDF);
 
 function saveData() {
 

@@ -29,7 +29,7 @@ export function convertData() {
 
     let list = cards.map(card => {
         let unitName = units.find(unit => unit[0] === card[2])[1];
-        return [card[0], card[1], unitName.replaceAll(' ', '_')];
+        return [card[0], card[1], unitName];
     });
 
     return list;
