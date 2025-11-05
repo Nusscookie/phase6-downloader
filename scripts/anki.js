@@ -48,11 +48,11 @@ async function createPackage() {
     });
 
     for (let name of unitNames) {
-        let deckId = 1762166929594 + unitNames.indexOf(name);
+        let deckId = Date.now() - Math.floor(unitNames.indexOf(name)*Math.PI^2); // oh yaay
         let firstName = "";
         let secondName = "";
         let deckName = "";
-        let tag = name.replaceAll(' ', '_');;
+        let tag = name.replaceAll(' ', '_');
 
         if (name.includes('|')) {
             firstName = name.split('|').shift().trim();

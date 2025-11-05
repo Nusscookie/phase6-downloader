@@ -2,12 +2,12 @@ import { generate } from "@pdfme/generator";
 import jsonTemplate from "../templates/template.json" assert { type: "json" };
 import { table, text } from "@pdfme/schemas";
 import { convertData } from "./convert.js";
-import { htmlToText } from "html-to-text";
+// import { htmlToText } from "html-to-text";
 
 const template = jsonTemplate;
 
 export async function downloadPDF() {
-    let list = getPlainList(convertData());
+    let list = convertData();
 
     const inputs = [{
         "heading": "Phase6 Vocabulary",
@@ -24,13 +24,13 @@ export async function downloadPDF() {
     });
 }
 
-function getPlainList(list) {
-    for (let group of list) {
-        if (group[0].includes("<") || group[1].includes("<")) {
-            group[0] = htmlToText(group[0]);
-            group[1] = htmlToText(group[1]);
-        }
-    }
+// function getPlainList(list) {
+//     for (let group of list) {
+//         if (group[0].includes("<") || group[1].includes("<")) {
+//             group[0] = htmlToText(group[0]);
+//             group[1] = htmlToText(group[1]);
+//         }
+//     }
 
-    return list;
-}
+//     return list;
+// }

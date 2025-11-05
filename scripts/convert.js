@@ -1,3 +1,5 @@
+import { htmlToText } from "html-to-text";
+
 const outputField = document.getElementById('output-field');
 const cardListData = document.getElementById('cardListData');
 const unitsListData = document.getElementById('unitsListData');
@@ -29,6 +31,18 @@ export function convertData() {
 
     let list = cards.map(card => {
         let unitName = units.find(unit => unit[0] === card[2])[1];
+
+        // if (unitName.includes("\u00A0")) {
+        //     unitName = unitName.replaceAll("\u00A0", '');
+        // }
+        
+        unitName = removeNBSP(unitName);
+
+        if (card[0].includes("<") || card[1].includes("<")) {
+            card[0] = htmlToText(card[0]);
+            card[1] = htmlToText(card[1]);
+        }
+
         return [card[0], card[1], unitName];
     });
 
@@ -36,6 +50,23 @@ export function convertData() {
 }
 
 export function getUnitNames() {
-    let unitsNames = units.map(unit => unit[1]);
+    let unitsNames = units.map(unit => {
+        return removeNBSP(unit[1]);
+    });
     return unitsNames;
+}
+
+function removeNBSP(string) {
+    try {
+        if (string.includes("\u00A0")) {
+            string = string.replaceAll("\u00A0", '');
+            return string;
+        } else {
+            return string;
+        }
+    } catch (error) {
+        outputField.textContent = `Value provided to remove non-breaking spaces isn't a string`;
+        console.error("Value provided to remove non-breaking spaces isn't a string:", error);
+    }
+    
 }

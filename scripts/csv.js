@@ -4,7 +4,7 @@ export function downloadCSV() {
     let list = convertData();
 
     let csvContent = list.map(listItem => {
-        return `${listItem[0]},${listItem[1]},${listItem[2].replaceAll(' ', '_')}\n`;
+        return `${listItem[0]}\u0009${listItem[1]}\u0009${listItem[2].replaceAll(' ', '_')}\n`;
     });
 
     const blob = new Blob(csvContent, { type: 'text/csv' });
