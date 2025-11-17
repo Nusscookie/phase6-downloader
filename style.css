@@ -104,3 +104,30 @@
 .download-box {
     display: inline-flex;
 }
+
+.progress-bar-outside {
+    margin-top: 3vh;
+    height: 20px;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.progress-bar {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes progress-animation {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+#play-progress-bar {
+    animation: progress-animation 5s forwards;
+}

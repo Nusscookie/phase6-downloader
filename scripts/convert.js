@@ -1,52 +1,45 @@
-import { htmlToText } from "html-to-text";
+import { saveAs } from "file-saver";
 
 const outputField = document.getElementById('output-field');
 const cardListData = document.getElementById('cardListData');
 const unitsListData = document.getElementById('unitsListData');
 
-let cardsObject = {};
-let unitsObject = {};
 let units = [];
 
-export function convertData() {
-    let cardListValue = cardListData.value;
-    let unitsListValue = unitsListData.value;
+export async function convertData(convertType) {
 
-    try {
-        cardsObject = JSON.parse(cardListValue).replyContent.cards;
-        unitsObject = JSON.parse(unitsListValue).replyContent.units;
-    } catch (error) {
-        outputField.textContent = `Invalid JSON data`;
-        console.error("Error parsing JSON data:", error);
+    const url = `http://127.0.0.1:3000/${convertType}-data`;
+    const dataJSON = `{"cardList":${cardListData.value},"unitsList":${unitsListData.value}}`;
+
+    const fetchOptions = {
+        method: 'post',
+        body: dataJSON
+    };
+
+    const file = await fetch(url, fetchOptions);
+
+
+    if (convertType === "pdf") {
+        const arrayBuffer = await file.arrayBuffer();
+        const blob = new Blob([arrayBuffer], { type: `application/pdf` });
+        window.open(URL.createObjectURL(blob));
+    } else if (convertType === "anki") {
+        const arrayBuffer = await file.arrayBuffer();
+        const blob = new Blob([arrayBuffer], { type: `application/apkg` });
+
+        saveAs(blob, "phase-6-vocabulary.apkg");
+
+    } else if (convertType === "csv") {
+        const arrayBuffer = await file.arrayBuffer();
+        const blob = new Blob([arrayBuffer], { type: `text/csv` });
+
+        console.log(arrayBuffer);
+
+        saveAs(blob, "phase-6-vocabulary.csv");
+
+    } else {
         return;
     }
-
-    let cards = cardsObject.map(card => {
-        return [card.cardContent.question.split("[").shift(), card.cardContent.answer.split("[").shift(), card.unitIdToOwner.id];
-    });
-
-    units = unitsObject.map(unit => {
-        return [unit.unitId.id, unit.unitContent.name];
-    });
-
-    let list = cards.map(card => {
-        let unitName = units.find(unit => unit[0] === card[2])[1];
-
-        // if (unitName.includes("\u00A0")) {
-        //     unitName = unitName.replaceAll("\u00A0", '');
-        // }
-        
-        unitName = removeNBSP(unitName);
-
-        if (card[0].includes("<") || card[1].includes("<")) {
-            card[0] = htmlToText(card[0]);
-            card[1] = htmlToText(card[1]);
-        }
-
-        return [card[0], card[1], unitName];
-    });
-
-    return list;
 }
 
 export function getUnitNames() {
@@ -68,5 +61,5 @@ function removeNBSP(string) {
         outputField.textContent = `Value provided to remove non-breaking spaces isn't a string`;
         console.error("Value provided to remove non-breaking spaces isn't a string:", error);
     }
-    
+
 }
