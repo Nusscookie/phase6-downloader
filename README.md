@@ -8,7 +8,7 @@ It is mainly designed for downloading existing libraries like books.
 navigate to the network tab, delete and refresh everything if necessary and watch out for requests called cardList 
 and unitsFiltered. 
 - Click on them and go to the response tab. Copy the responses and paste them into the text fields. 
-- Click "Download CSV" or "Download APKG" to download the desired file type.
+- Click "Download CSV", "Download APKG" or "Download PDF" to download the desired file type.
 - Double-click the .apkg file to import into Anki.
 - To import your .csv file into Anki, create a new deck, click on it and go to File and Import. Select your .csv file and use the comma as a seperator. Make sure HTML is allowed (some cards use it). Now select the prefered note type and assign the front, back and tags to the columns shown above.
 
