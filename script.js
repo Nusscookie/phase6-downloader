@@ -4,14 +4,15 @@ const convertButton = document.getElementById('csvButton');
 const infoButton = document.getElementById('infoButton');
 const apkgButton = document.getElementById('apkgButton');
 const outputField = document.getElementById('output-field');
+const outputBox = document.querySelector(".output-box");
 const pdfButton = document.getElementById('pdfButton');
 
 let expanseField = true;
 
-convertButton.addEventListener('click', () => {loading("csv")});
+convertButton.addEventListener('click', () => { loading("csv") });
 infoButton.addEventListener('click', getInfo);
-apkgButton.addEventListener('click', () => {loading("anki")});
-pdfButton.addEventListener('click', () => {loading("pdf")});
+apkgButton.addEventListener('click', () => { loading("anki") });
+pdfButton.addEventListener('click', () => { loading("pdf") });
 
 function saveData() {
 
@@ -37,10 +38,12 @@ saveData();
 function getInfo() {
 
     if (expanseField) {
+        outputBox.style.display = "block";
         outputField.textContent = `Open your Phase6 web app, go to the library of the desired book you want to export, open developer tools (F12), navigate to the network tab, delete and refresh everything if necessary and watch out for requests called cardList and unitsFiltered. Click on them and go to the response tab. Copy the responses and paste them into the text fields. Click one of the download buttons to access your vocabulary.`;
         expanseField = false;
+        return;
     } else {
-        outputField.textContent = "";
+        outputBox.style.display = "none";
         expanseField = true;
     }
 

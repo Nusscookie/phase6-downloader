@@ -54,7 +54,6 @@
 
 .convert-box {
     display: inline-block;
-    /* justify-content: center; */
     /* background-color: yellow; */
 }
 
@@ -68,12 +67,13 @@
     touch-action: manipulation;
 }
 
-.output-field {
+.output-box {
     margin-top: 1%;
     display: flex;
     justify-content: center;
     text-align: center;
     /* background-color: lightcoral; */
+    display: none;
 }
 
 .data-textarea {
@@ -82,22 +82,21 @@
 }
 
 .buttons-box {
-    margin-top: 3vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     /* background-color: lightpink; */
 }
 
-.responses {
-    margin-top: 3vh;
+.margin-top {
+    margin-top: 4vh;
 }
 
 .output-text {
     width: 75vw;
 }
 
-.margin-button {
+.margin-left {
     margin-left: 0.5vw;
 }
 
@@ -110,12 +109,23 @@
     height: 20px;
     position: relative;
     border: 2px solid rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 .progress-bar {
     position: absolute;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    /* background-color: lightsalmon; */
+    height: 20px;
+    touch-action: manipulation;
 }
 
 @keyframes start-progress-animation {

@@ -1,15 +1,14 @@
 import { saveAs } from "file-saver";
 
-const outputField = document.getElementById('output-field');
 const cardListData = document.getElementById('cardListData');
 const unitsListData = document.getElementById('unitsListData');
-
-let units = [];
+const motherTongueInput = document.getElementById('motherTongueInput');
+const languageToLearnInput = document.getElementById('languageToLearnInput');
 
 export async function getData(convertType) {
 
     const url = `https://phase6-downloader-api.onrender.com/${convertType}-data`;
-    const dataJSON = `{"cardList":${cardListData.value},"unitsList":${unitsListData.value}}`;
+    const dataJSON = `{"cardList":${cardListData.value},"unitsList":${unitsListData.value},"motherTongue":"${motherTongueInput.value}","languageToLearn":"${languageToLearnInput.value}"}`;
 
     const fetchOptions = {
         method: 'post',

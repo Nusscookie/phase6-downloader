@@ -15,19 +15,30 @@
     <div class="box">
         <div class="convert-box font">
 
+            <h3>Responses</h3>
+
             <p>Response of cardsList</p>
 
             <textarea id="cardListData" class="data-textarea" rows="5"></textarea>
 
-            <p class="responses">Response of unitsFiltered</p>
+            <p>Response of unitsFiltered</p>
 
             <textarea id="unitsListData" class="data-textarea" rows="5"></textarea>
+
+            <h3 class="margin-top">Customization</h3>
+
+             <div class="input-fields">
+                <input class="input" type="text" placeholder="Mother Tongue..." id="motherTongueInput">
+                <input class="input margin-left" type="text" placeholder="Language to learn..." id="languageToLearnInput">
+            </div>
+
+            <h3 class="margin-top">Download section</h3>
 
             <div class="buttons-box">
                 <div class="download-box">
                     <button class="button" id="csvButton">Download CSV</button>
-                    <button class="button margin-button" id="apkgButton">Download APKG</button>
-                    <button class="button margin-button" id="pdfButton">Download PDF</button>
+                    <button class="button margin-left" id="apkgButton">Download APKG</button>
+                    <button class="button margin-left" id="pdfButton">Download PDF</button>
                 </div>
 
                 <button class="info-button" id="infoButton">
@@ -40,12 +51,12 @@
                 <div class="progress-bar"></div>
             </div>
 
-            <div class="output-field">
-                <p class="output-text" id="output-field"></p>
+            <div class="output-box">
+                <p class="output-text margin-top" id="output-field"></p>
             </div>
 
-            <p class="output-text"><b>Note:</b> To import your .csv file into Anki, create a new deck, click on it and
-                go to File and Import. Select your .csv file and use the comma as a seperator. 
+            <p class="margin-top output-text"><b>Note:</b> To import your .csv file into Anki, create a new deck, click on it and
+                go to File and Import. Select your .csv file and use the tabulator as a seperator. 
                 Now select the prefered note typ and assign the front, back and tags to the columns shown
                 above.</p>
 
