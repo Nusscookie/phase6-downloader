@@ -1,7 +1,4 @@
-// import { downloadAnki } from "./scripts/anki.js";
-// import { downloadCSV } from "./scripts/csv.js";
-// import { downloadPDF } from "./scripts/pdf.js";
-import { convertData } from "./scripts/convert.js";
+import { loading } from './scripts/loading.js'
 
 const convertButton = document.getElementById('csvButton');
 const infoButton = document.getElementById('infoButton');
@@ -11,10 +8,10 @@ const pdfButton = document.getElementById('pdfButton');
 
 let expanseField = true;
 
-convertButton.addEventListener('click', () => {convertData("csv")});
+convertButton.addEventListener('click', () => {loading("csv")});
 infoButton.addEventListener('click', getInfo);
-apkgButton.addEventListener('click', () => {convertData("anki")});
-pdfButton.addEventListener('click', () => {convertData("pdf")});
+apkgButton.addEventListener('click', () => {loading("anki")});
+pdfButton.addEventListener('click', () => {loading("pdf")});
 
 function saveData() {
 
@@ -48,3 +45,8 @@ function getInfo() {
     }
 
 }
+
+// async function loadData(type) {
+//     playProgressBar();
+//     await getData(type);
+// }

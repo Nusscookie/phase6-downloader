@@ -118,6 +118,26 @@
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+@keyframes start-progress-animation {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 80%;
+    }
+}
+
+@keyframes finish-progress-animation {
+    from {
+        width: 80%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
 @keyframes progress-animation {
     0% {
         width: 0%;
@@ -126,8 +146,4 @@
     100% {
         width: 100%;
     }
-}
-
-#play-progress-bar {
-    animation: progress-animation 5s forwards;
 }
